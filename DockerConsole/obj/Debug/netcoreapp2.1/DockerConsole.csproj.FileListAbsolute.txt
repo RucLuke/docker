@@ -1,0 +1,11 @@
+E:\Codes\BestPractice\docker\DockerConsole\bin\Debug\netcoreapp2.1\DockerConsole.deps.json
+E:\Codes\BestPractice\docker\DockerConsole\bin\Debug\netcoreapp2.1\DockerConsole.runtimeconfig.json
+E:\Codes\BestPractice\docker\DockerConsole\bin\Debug\netcoreapp2.1\DockerConsole.runtimeconfig.dev.json
+E:\Codes\BestPractice\docker\DockerConsole\bin\Debug\netcoreapp2.1\DockerConsole.dll
+E:\Codes\BestPractice\docker\DockerConsole\bin\Debug\netcoreapp2.1\DockerConsole.pdb
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.csprojAssemblyReference.cache
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.csproj.CoreCompileInputs.cache
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.AssemblyInfoInputs.cache
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.AssemblyInfo.cs
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.dll
+E:\Codes\BestPractice\docker\DockerConsole\obj\Debug\netcoreapp2.1\DockerConsole.pdb
