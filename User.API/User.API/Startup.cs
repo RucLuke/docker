@@ -43,7 +43,7 @@ namespace User.API
                 app.UseHsts();
             }
 
-            InitUserDatabase(app);
+            //InitUserDatabase(app);
 
             //app.UseHttpsRedirection();
             app.UseMvc();
