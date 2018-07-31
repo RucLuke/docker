@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using User.API.Data;
+using User.API.Models;
 
 namespace User.API
 {
@@ -25,6 +22,12 @@ namespace User.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<UserContext>(options =>
+                {
+                    //options.UseMySQL(Configuration.GetConnectionString("MysqlUserConnection"));
+                    options.UseMySql(Configuration.GetConnectionString("MysqlUserConnection"));
+                });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -40,8 +43,24 @@ namespace User.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            InitUserDatabase(app);
+
+            //app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        public void InitUserDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var userContext = scope.ServiceProvider.GetRequiredService<UserContext>();
+                userContext.Database.Migrate();
+                if (userContext.Users.Any()) return;
+
+                // add a default user
+                userContext.Users.Add(new AppUser() { Name = "xink" });
+                userContext.SaveChanges();
+            }
         }
     }
 }
