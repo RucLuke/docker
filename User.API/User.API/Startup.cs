@@ -44,23 +44,23 @@ namespace User.API
             }
 
             //InitUserDatabase(app);
-
+            UserContextSeed.SeedAsync(app).Wait();
             //app.UseHttpsRedirection();
             app.UseMvc();
         }
 
-        public void InitUserDatabase(IApplicationBuilder app)
-        {
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var userContext = scope.ServiceProvider.GetRequiredService<UserContext>();
-                userContext.Database.Migrate();
-                if (userContext.Users.Any()) return;
+        //public void InitUserDatabase(IApplicationBuilder app)
+        //{
+        //    using (var scope = app.ApplicationServices.CreateScope())
+        //    {
+        //        var userContext = scope.ServiceProvider.GetRequiredService<UserContext>();
+        //        userContext.Database.Migrate();
+        //        if (userContext.Users.Any()) return;
 
-                // add a default user
-                userContext.Users.Add(new AppUser() { Name = "xink" });
-                userContext.SaveChanges();
-            }
-        }
+        //        // add a default user
+        //        userContext.Users.Add(new AppUser() { Name = "xink" });
+        //        userContext.SaveChanges();
+        //    }
+        //}
     }
 }

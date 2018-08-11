@@ -10,10 +10,10 @@ namespace User.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly UserContext _userContext;
-        public ValuesController(UserContext userContext)
+        public UserController(UserContext userContext)
         {
             _userContext = userContext;
         }
