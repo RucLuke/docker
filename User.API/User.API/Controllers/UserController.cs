@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using User.API.Data;
-
-namespace User.API.Controllers
+﻿namespace User.API.Controllers
 {
+    using System.Threading.Tasks;
+    using Data;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly UserContext _userContext;
         public UserController(UserContext userContext)
@@ -20,6 +17,21 @@ namespace User.API.Controllers
         // GET api/values
         [HttpGet]
         public async Task<IActionResult> Get()
+        {
+            var user = await _userContext.Users
+                 .AsNoTracking()
+                 .Include(u => u.Properties)
+                 .SingleOrDefaultAsync(u => u.Id == UserIdentity.UserId);
+
+            if (user == null)
+                return NotFound();
+
+            return Json(user);
+        }
+
+
+        [HttpPatch]
+        public async Task<IActionResult> Patch()
         {
             return new JsonResult(await _userContext.Users.SingleOrDefaultAsync(u => u.Name == "xink"));
         }
