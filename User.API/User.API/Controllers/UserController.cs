@@ -1,4 +1,6 @@
-﻿namespace User.API.Controllers
+﻿using Microsoft.Extensions.Logging;
+
+namespace User.API.Controllers
 {
     using System.Threading.Tasks;
     using Data;
@@ -10,9 +12,11 @@
     public class UserController : BaseController
     {
         private readonly UserContext _userContext;
-        public UserController(UserContext userContext)
+        private ILogger<UserController> _logger;
+        public UserController(UserContext userContext, ILogger<UserController> logger)
         {
             _userContext = userContext;
+            _logger = logger;
         }
         // GET api/values
         [HttpGet]
@@ -24,7 +28,9 @@
                  .SingleOrDefaultAsync(u => u.Id == UserIdentity.UserId);
 
             if (user == null)
-                return NotFound();
+            {
+                throw new UserOperationException($"错误的用户上下文:Id {UserIdentity.UserId}");
+            }
 
             return Json(user);
         }

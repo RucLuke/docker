@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using User.API.Data;
+using User.API.Filters;
 using User.API.Models;
 
 namespace User.API
@@ -28,7 +29,10 @@ namespace User.API
                     options.UseMySql(Configuration.GetConnectionString("MysqlUserConnection"));
                 });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(GlobalExceptionFilter));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
