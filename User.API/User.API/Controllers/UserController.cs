@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Linq;
 
 namespace User.API.Controllers
 {
@@ -6,6 +6,9 @@ namespace User.API.Controllers
     using Data;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.AspNetCore.JsonPatch;
+    using Models;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -37,9 +40,34 @@ namespace User.API.Controllers
 
 
         [HttpPatch]
-        public async Task<IActionResult> Patch()
+        public async Task<IActionResult> Patch([FromBody]JsonPatchDocument<AppUser> patch)
         {
-            return new JsonResult(await _userContext.Users.SingleOrDefaultAsync(u => u.Name == "xink"));
+            var user = await _userContext.Users
+                .Include(u => u.Properties)
+                .SingleOrDefaultAsync(u => u.Id == UserIdentity.UserId);
+
+            var originalProperties = user.Properties;
+            patch.ApplyTo(user);
+
+            var allProperties = originalProperties.Union(user.Properties).Distinct();
+
+            var removedProperties = originalProperties.Except(user.Properties);
+            var newProperties = allProperties.Except(originalProperties);
+
+            foreach (var property in removedProperties)
+            {
+                _userContext.Remove(property);
+            }
+
+            foreach (var property in newProperties)
+            {
+                _userContext.Add(property);
+            }
+
+            _userContext.Users.Update(user);
+            _userContext.SaveChanges();
+            return Json(user);
+            //return new JsonResult(await _userContext.Users.SingleOrDefaultAsync(u => u.Name == "xink"));
         }
     }
 }

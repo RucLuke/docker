@@ -24,22 +24,18 @@ namespace User.API.Filters
             if (context.Exception.GetType() == typeof(UserOperationException))
             {
                 json.Message = context.Exception.Message;
-
-
-
                 context.Result = new BadRequestObjectResult(json);
             }
             else
             {
                 json.Message = "发生了未知的内部错误";
-                if (_env.IsDevelopment())
-                {
-                    json.DeveloperMessage = context.Exception.StackTrace;
-                }
-
                 context.Result = new InternalServerErrorObjectResult(json);
             }
 
+            if (_env.IsDevelopment())
+            {
+                json.DeveloperMessage = context.Exception.StackTrace;
+            }
             _logger.LogError(context.Exception, context.Exception.Message);
             context.ExceptionHandled = true;
         }

@@ -40,5 +40,8 @@ namespace User.API.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
+
+        public DbSet<UserProperty> UserProperties { get; set; }
+
     }
 }
