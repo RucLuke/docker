@@ -1,0 +1,16 @@
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.UnitTest.deps.json
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.UnitTest.runtimeconfig.json
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.UnitTest.runtimeconfig.dev.json
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.UnitTest.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.UnitTest.pdb
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.csprojResolveAssemblyReference.cache
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.csproj.CoreCompileInputs.cache
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.AssemblyInfoInputs.cache
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.AssemblyInfo.cs
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\obj\Debug\netcoreapp2.1\User.API.UnitTest.pdb
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.dll
+E:\Codes\BestPractice\docker\User.API\User.API.UnitTest\bin\Debug\netcoreapp2.1\User.API.pdb
