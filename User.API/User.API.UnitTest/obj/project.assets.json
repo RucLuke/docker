@@ -10067,9 +10067,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "E:\\Codes\\BestPractice\\docker\\User.API\\User.API.UnitTest\\User.API.UnitTest.csproj",
       "projectName": "User.API.UnitTest",
@@ -10109,50 +10106,51 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Abstractions": {
-            "target": "Package",
-            "version": "2.1.1"
-          },
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "2.1.1"
-          },
           "FluentAssertions": {
             "target": "Package",
-            "version": "5.4.1"
-          },
-          "Microsoft.EntityFrameworkCore.InMemory": {
-            "target": "Package",
-            "version": "2.1.1"
-          },
-          "xunit.runner.visualstudio": {
-            "target": "Package",
-            "version": "2.3.1"
-          },
-          "Moq": {
-            "target": "Package",
-            "version": "4.9.0"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.1.0",
-            "autoReferenced": true
-          },
-          "xunit": {
-            "target": "Package",
-            "version": "2.3.1"
+            "version": "[5.4.1, )"
           },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )"
           },
-          "Microsoft.NET.Test.Sdk": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": {
             "target": "Package",
-            "version": "15.7.0"
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "Microsoft.Extensions.Logging": {
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.NET.Test.Sdk": {
+            "target": "Package",
+            "version": "[15.7.0, )"
+          },
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.1.0, )",
+            "autoReferenced": true
+          },
+          "Moq": {
+            "target": "Package",
+            "version": "[4.9.0, )"
+          },
+          "xunit": {
+            "target": "Package",
+            "version": "[2.3.1, )"
+          },
+          "xunit.runner.visualstudio": {
+            "target": "Package",
+            "version": "[2.3.1, )"
           }
         },
         "imports": [

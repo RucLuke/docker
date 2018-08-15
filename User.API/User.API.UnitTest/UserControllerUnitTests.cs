@@ -58,7 +58,7 @@ namespace User.API.UnitTest
         }
 
         [Fact]
-        public async Task Patch_ReturnNewName_WithExpectedNewParameter()
+        public async Task Patch_ReturnNewName_WithExpectedNewName()
         {
             var (controller, userContext) = GetUserController();
             var document = new JsonPatchDocument<AppUser>();
